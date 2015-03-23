@@ -2,13 +2,133 @@
 <html>
 <head>
   <title>OnlineShop</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <!-- NAV SECTION -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to image_tag("online_bus.jpg"),root_path,:class => "navbar-brand"%>                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to "HOME", root_path %></li>
+                    <li><%= link_to "ABOUT", root_path %></li>
+                    <li><%= link_to "SERVICES", root_path %></li>
+                    <li><%= link_to "PRICING", root_path %></li>
+                    <li><%= link_to "GALLERY", root_path %></li>
+                    <li><%= link_to "CONTACT", contact_home_index_path %></li>
+                </ul>
+            </div>
 
-<%= yield %>
+        </div>
+    </div>
+    <!--END NAV SECTION -->
+    <!-- HOME SECTION -->
+
+    <!-- SLIDER SECTION -->
+    <div id="slides">
+      <%= image_tag("slider/images/1.jpg") %>
+      <%= image_tag("slider/images/2.jpg") %>
+      <%= image_tag("slider/images/1.jpg") %>
+      <%= image_tag("slider/images/2.jpg") %>        
+
+    </div>
+    <!-- END SLIDER SECTION -->
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="space-bottom"></div>
+    <!--END HOME SECTION -->
+    <!--FOOTER SECTION -->
+
+    <div id="footer">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Quick Information :</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                </p>
+                <button type="submit" class="btn btn-primary">Get Quote</button>
+            </div>
+            <div class="col-md-4">
+                <h4>Need Help ? Write Us. </h4>
+                <hr>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Email address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit Request</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <a href="#"><i class="fa fa-facebook-square fa-3x color-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter-square fa-3x color-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus-square fa-3x color-google-plus"></i></a>
+                <a href="#"><i class="fa fa-linkedin-square fa-3x color-linkedin"></i></a>
+                <a href="#"><i class="fa fa-pinterest-square fa-3x color-pinterest"></i></a>
+                <hr>
+                <p>
+                    103, New Street,<br>
+                    New York, USA.<br>
+                    Call: +23-00-89-009<br>
+                    Email: demo@yourdomain.com<br>
+                </p>
+
+                2014 www.yourdomain.com | All Right Reserved
+            </div>
+        </div>
+
+
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                play: {
+                    active: true,
+                    auto: true,
+                    interval: 4000,
+                    swap: true
+                }
+            });
+        });
+
+    </script>
 
 </body>
 </html>
