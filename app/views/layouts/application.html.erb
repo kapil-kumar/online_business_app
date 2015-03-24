@@ -22,9 +22,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><%= link_to "HOME", root_path %></li>
-                    <li><%= link_to "ABOUT", root_path %></li>                    
-                    <li><%= link_to "CONTACT", contact_home_index_path %></li>
+                <% if current_user %>
+                  <li><%= link_to "HOME", root_path %></li>
+                  <li><%= link_to "ABOUT", "#" %></li>                    
+                  <li><%= link_to "Sign Out", destroy_user_session_path,:method => :delete %></li>
+                <% else %>
+                  <li><%= link_to "HOME", root_path %></li>
+                  <li><%= link_to "ABOUT", "#" %></li>                    
+                  <li><%= link_to "CONTACT", contact_home_index_path %></li>
+                <% end %>
                 </ul>
             </div>
 
