@@ -1,7 +1,6 @@
 class SocialSitesController < ApplicationController
   def create
-    auth = env["omniauth.auth"] 
-    puts auth.info.image
+    auth = env["omniauth.auth"]     
     @user = User.from_omniauth(auth)
     sign_in :user,@user
     redirect_to root_path
