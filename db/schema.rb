@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150323104737) do
     t.string   "last_name",              limit: 255
     t.string   "provider",               limit: 255
     t.string   "access_token",           limit: 255
-    t.string   "secrect_token",          limit: 255
+    t.string   "uid",                    limit: 255
     t.string   "picture_file_name",      limit: 255
     t.string   "picture_content_type",   limit: 255
     t.integer  "picture_file_size",      limit: 4

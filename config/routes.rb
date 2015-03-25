@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'social_sites/create'
+
   devise_for :users
+  get 'auth/:provider/callback' => 'social_sites#create'
   root :to => 'home#index'
   
   resources :home do
@@ -8,6 +11,8 @@ Rails.application.routes.draw do
       post :submit_contact
     end
   end
+  
+  resources :profiles
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

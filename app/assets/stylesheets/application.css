@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+.form-control{
+  width:50%;
+}
+
+#error_explanation{
+  color:red;
+}
+
+#error_explanation h2 {
+  display:none;
+}
+
+.dropdown-menu {
+  padding: 2px !important;
+}
+
+.dropdown-menu > li > span > a {
+    clear: both;
+    color: #333;    
+    font-weight: 400;
+    line-height: 1.42857;    
+    white-space: nowrap;    
+}
+
+.dropdown-menu > li > span > a:hover {    
+    text-decoration: none;
+}

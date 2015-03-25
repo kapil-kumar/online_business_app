@@ -28,7 +28,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :provider
       t.string :access_token
-      t.string :secrect_token
+      t.string :uid
       t.attachment :picture
       t.string :image
 
