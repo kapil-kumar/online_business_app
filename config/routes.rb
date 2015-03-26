@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :profiles
+  resources :profiles do
+    member do
+      get :edit_pic
+      put :update_pic
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

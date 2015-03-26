@@ -1,3 +1,4 @@
+<%= link_to "EDIT",edit_profile_path(current_user),:class => "pull-right" %><br/>
 <hr class="">
 <div class="container target">
   <div class="row">
@@ -5,8 +6,8 @@
       <h1 class=""><%= current_user.name %></h1>         
       <button type="button" class="btn btn-success">Book me!</button>  <button type="button" class="btn btn-info">Send me a message</button>
       <br>
-    </div>
-    <div class="col-sm-2"><a href="/users" class="pull-right"><%= image_tag(current_user.picture,:class => "img-circle img-responsive") %></a></div>
+    </div>    
+    <div class="col-sm-2"><%= link_to image_tag(current_user.picture.url(:thumb),:class => "img-circle img-responsive"), edit_pic_profile_path(current_user),:class => "pull-right",:title => "Click to edit"%></div>
   </div>
   <br/>
   <div class="row">
@@ -15,7 +16,7 @@
       <ul class="list-group">
         <li class="list-group-item text-muted" contenteditable="false">Profile</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= current_user.created_at.strftime("%d.%m.%Y") %></li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span> <%= current_user.last_sign_in_at.strftime("%d %b") %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span> <%= current_user.last_seen %></li>
         <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span> <%= current_user.name %></li>              
       </ul>
       <div class="panel panel-default">

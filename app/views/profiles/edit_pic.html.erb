@@ -1,0 +1,16 @@
+<h2>Edit Profile Picture</h2>
+
+<%= form_for @user,:url => update_pic_profile_path(@user), html: { method: :put, class: 'form-horizontal' } do |f| %>
+<div class="form-group">
+    <%= f.label :picture, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.file_field :picture  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit "Update Pic", class: "btn btn-primary" %>
+    </div>
+</div>
+<% end %>

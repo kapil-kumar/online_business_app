@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
   
-  has_attached_file :picture
+  has_attached_file :picture,:styles => {:thumb => "100x100>"},:default_url => "missing.jpeg"
+  validates :first_name,:last_name,:presence => true,:on => :create
         
         
   def self.from_omniauth(auth)
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
   
   def name
     self.first_name+" "+self.last_name
+  end
+  
+  def last_seen
+    distance_of_time_in_words(self.created_at,Time.now)+" ago"
   end
   
   def self.process_uri(uri)
