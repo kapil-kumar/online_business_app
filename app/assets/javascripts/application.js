@@ -14,5 +14,16 @@
 //= require jquery_ujs
 //= require jquery.jcrop
 //= require papercrop
+//= require bootstrap-wysihtml5
 //= require twitter/bootstrap
 //= require_tree .
+
+ $(document).ready(function(){
+
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5({
+        "color": true
+      });
+    });
+
+  })

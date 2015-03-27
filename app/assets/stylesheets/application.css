@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require jquery.jcrop
+ *= require bootstrap-wysihtml5
  *= require_self
  */
 
