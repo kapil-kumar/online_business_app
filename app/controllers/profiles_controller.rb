@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_user
   
   def update
@@ -17,7 +18,7 @@ class ProfilesController < ApplicationController
   def update_pic
     if @user.update_attributes(user_params)
       flash[:success] = "Updated profile picture successfully!"
-      redirect_to profile_path(@user)
+      render :action => "crop_pic"
     else
       puts @user.errors.inspect
       flash[:error] = "Updation failed!"

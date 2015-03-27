@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
   
   has_attached_file :picture,:styles => {:thumb => "100x100>"},:default_url => "missing.jpeg"
+  crop_attached_file :picture, :aspect => "16:9"
   validates :first_name,:last_name,:presence => true,:on => :create
+  
+  has_many :posts,:dependent => :destroy
         
         
   def self.from_omniauth(auth)

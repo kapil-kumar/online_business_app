@@ -16,6 +16,34 @@
 </div>
 
 <div class="form-group">
+    <%= f.label :gender, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.select :gender,options_for_select([["select",""],["Male","Male"],["Female","Female"]],:selected => f.object.gender), class: "form-control" %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :date_of_birth, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.date_select :date_of_birth, class: "form-control" %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :website, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :website, class: "form-control" %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :about_me, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_area :about_me, class: "form-control" %>
+    </div>
+</div>
+
+<div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
         <%= f.submit "Update", class: "btn btn-primary" %>
     </div>

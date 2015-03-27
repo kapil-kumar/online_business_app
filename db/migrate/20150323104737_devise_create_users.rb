@@ -29,8 +29,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :provider
       t.string :access_token
       t.string :uid
-      t.attachment :picture
-      t.string :image
+      t.attachment :picture      
+      t.string :gender
+      t.string :website
+      t.date :date_of_birth
+      t.text :about_me
 
       ## Lockable
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts

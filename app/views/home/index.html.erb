@@ -1,1 +1,10 @@
-Welcome!
+<% if current_user %>
+    <% current_user.posts.each do |post| %>
+    <div class="alert fade in alert-success ">      
+      <p><%= post.title %></p>
+      <p><%= image_tag(post.image.url(:medium)) %></p>
+    </div>
+    <% end %>  
+<% else %>
+  Welcome!
+<% end %>
