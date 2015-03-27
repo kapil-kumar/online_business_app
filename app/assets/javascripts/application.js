@@ -22,7 +22,7 @@
 
     $('.wysihtml5').each(function(i, elem) {
       $(elem).wysihtml5({
-        "color": true
+        'color': true
       });
     });
 
