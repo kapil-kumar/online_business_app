@@ -36,7 +36,7 @@
     <div class="col-sm-9" style="" contenteditable="false">
       <div class="panel panel-default">
         <div class="panel-heading"><%= current_user.name %>'s Bio</div>
-        <div class="panel-body"> <%= current_user.about_me.html_safe %></div>
+        <div class="panel-body"> <%= current_user.about_me ? current_user.about_me.html_safe : nil %></div>
       </div>
       <div class="panel panel-default target">
         <div class="panel-heading" contenteditable="false">Pets I Own</div>
@@ -95,7 +95,7 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-heading"><%= current_user.name %>'s Bio</div>
-        <div class="panel-body"> <%= current_user.about_me.html_safe %></div>
+        <div class="panel-body"> <%= current_user.about_me ? current_user.about_me.html_safe : nil %></div>
       </div>
     </div>
     <div id="push"></div>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'social_sites/create'
 
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "sessions"} do
+    get '/sign_out' => 'sessions#destroy', :as => :destroy_user_session
+  end
+  
   get 'auth/:provider/callback' => 'social_sites#create'
   root :to => 'home#index'
   
