@@ -1,13 +1,13 @@
-<%= link_to "EDIT",edit_profile_path(current_user),:class => "pull-right" %><br/>
+<%= link_to "EDIT",edit_profile_path(@user),:class => "pull-right" if current_user and @user == current_user %><br/>
 <hr class="">
 <div class="container target">
   <div class="row">
     <div class="col-sm-10">
-      <h1 class=""><%= current_user.name %></h1>         
+      <h1 class=""><%= @user.name %></h1>         
       <button type="button" class="btn btn-success">Book me!</button>  <button type="button" class="btn btn-info">Send me a message</button>
       <br>
     </div>    
-    <div class="col-sm-2"><%= link_to image_tag(current_user.picture.url(:thumb),:class => "img-circle img-responsive"), edit_pic_profile_path(current_user),:class => "pull-right",:title => "Click to change"%></div>
+    <div class="col-sm-2"><%= link_to image_tag(@user.picture.url(:thumb),:class => "img-circle img-responsive"), edit_pic_profile_path(@user),:class => "pull-right",:title => "Click to change"%></div>
   </div>
   <br/>
   <div class="row">
@@ -15,14 +15,15 @@
     <!--left col-->
       <ul class="list-group">
         <li class="list-group-item text-muted" contenteditable="false">Profile</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= current_user.created_at.strftime("%d.%m.%Y") %></li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span> <%= current_user.last_seen %></li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span> <%= current_user.name %></li>              
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= @user.created_at.strftime("%d.%m.%Y") %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span> <%= @user.last_seen %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span> <%= @user.name %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Gender</strong></span> <%= @user.gender %></li>
       </ul>
       
       <div class="panel panel-default">
         <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-        <div class="panel-body"><%= link_to current_user.website, current_user.website,:target => "_blank" %></div>
+        <div class="panel-body"><%= link_to @user.website, @user.website,:target => "_blank" %></div>
       </div>          
       <ul class="list-group">
         <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
@@ -35,8 +36,8 @@
         <!--/col-3-->
     <div class="col-sm-9" style="" contenteditable="false">
       <div class="panel panel-default">
-        <div class="panel-heading"><%= current_user.name %>'s Bio</div>
-        <div class="panel-body"> <%= current_user.about_me ? current_user.about_me.html_safe : nil %></div>
+        <div class="panel-heading"><%= @user.name %>'s Bio</div>
+        <div class="panel-body"> <%= @user.about_me ? @user.about_me.html_safe : nil %></div>
       </div>
       <div class="panel panel-default target">
         <div class="panel-heading" contenteditable="false">Pets I Own</div>
@@ -94,8 +95,8 @@
         </div>              
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading"><%= current_user.name %>'s Bio</div>
-        <div class="panel-body"> <%= current_user.about_me ? current_user.about_me.html_safe : nil %></div>
+        <div class="panel-heading"><%= @user.name %>'s Bio</div>
+        <div class="panel-body"> <%= @user.about_me ? @user.about_me.html_safe : nil %></div>
       </div>
     </div>
     <div id="push"></div>
